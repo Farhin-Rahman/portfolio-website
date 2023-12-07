@@ -15,13 +15,11 @@ jobs:
 
       - name: Deploy to Namecheap Hosting
         run: |
-          # Add commands to upload files to your Namecheap hosting
-          # Example FTP command:
-          # ftp -p -inv yourdomain.com << EOF
-          # cd /public_html  # Adjust the path based on your hosting setup
-          # put -r *          # Upload all files recursively
-          # quit
-          # EOF
+          ftp -p -inv server230.web-hosting.com << EOF
+          cd public_html  # Adjust the path based on your hosting setup
+          put -r *          # Upload all files recursively
+          quit
+          EOF
         env:
           FTP_USERNAME: ${{ secrets.FTP_USERNAME }}
           FTP_PASSWORD: ${{ secrets.FTP_PASSWORD }}
